@@ -4,7 +4,7 @@ import { UserEntity } from "shared/entities";
 export type IAuthContext = {
   user?: UserEntity;
   signIn: (data: IAuthContextTypes.ISignIn.Params) => IAuthContextTypes.ISignIn.Result;
-  isAuthenticate: boolean;
+  isAuthenticate: () => boolean;
   logout: () => void;
 };
 

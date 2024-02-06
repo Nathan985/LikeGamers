@@ -5,11 +5,11 @@ import { useAuthContext } from "shared/context/AuthContext/useAuthContext";
 export function AuthGuard({ isPrivate = false }: IAuthGuardType) {
     const { isAuthenticate } = useAuthContext();
 
-    if (!isAuthenticate && isPrivate) {
+    if (!isAuthenticate() && isPrivate) {
         return <Navigate to="/auth" replace />;
     }
 
-    if (isAuthenticate && !isPrivate) {
+    if (isAuthenticate() && !isPrivate) {
         return <Navigate to="/dashboard" replace />;
     }
 

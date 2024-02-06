@@ -1,4 +1,4 @@
-import { createContext, useMemo, useState } from "react";
+import { createContext, useCallback, useMemo, useState } from "react";
 import {
     IAuthContext,
     IAuthContextProvider,
@@ -39,8 +39,9 @@ export const AuthContextProvider: React.FC<IAuthContextProvider> = ({
         setUser(undefined);
     };
 
-    const isAuthenticate = useMemo(() => {
-        return !!user;
+    const isAuthenticate = useCallback(() => {
+        const userEntity = localStorageAdapter.get("@user_auth");
+        return !!userEntity;
     }, [user]);
 
     return (
