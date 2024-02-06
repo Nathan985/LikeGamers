@@ -13,7 +13,21 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
+    "baseUrl": "src",
+    "paths": {
+      "@view": [
+        "src/view"
+      ],
+      "@components": [
+        "src/view/components"
+      ],
+      "@shared": [
+        "src/shared"
+      ],
+      "@assets": [
+        "src/assets"
+      ]
+    },
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

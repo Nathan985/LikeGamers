@@ -1,5 +1,11 @@
 import React from "react";
+import { RouterProvider } from "router";
+import { AuthContextProvider } from "shared/context/AuthContext";
 
 export const App: React.FC = () => {
-    return <div className="bg-red-500 text-white">Welcome</div>;
+    return (
+        <AuthContextProvider>
+            <RouterProvider />
+        </AuthContextProvider>
+    );
 };
