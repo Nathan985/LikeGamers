@@ -33,3 +33,15 @@
   font-style: 'normal';
   src: url('./assets/fonts/inter/Inter-Bold.ttf') format('ttf');
 }
+
+.scroll-slim::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #334155;
+  background-clip: padding-box;
+}
+
+.scroll-slim::-webkit-scrollbar {
+  border-radius: 20px;
+  background-color: #94a3b8;
+  width: 4px;
+}

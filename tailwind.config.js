@@ -10,6 +10,7 @@ export default {
     },
     extend: {},
   },
+  darkMode: 'class',
   plugins: [
     require('@tailwindcss/forms'),
     require('tailwind-scrollbar'),

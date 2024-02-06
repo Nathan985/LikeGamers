@@ -5,7 +5,7 @@ import {
     IAuthContextTypes,
 } from "./interface";
 import { UserEntity } from "shared/entities";
-import LocalStorageAdapter from "shared/helpers/LocalStorageAdapter";
+import { localStorageAdapter } from "shared/helpers";
 
 export const AuthContext = createContext({} as IAuthContext);
 
@@ -15,7 +15,7 @@ export const AuthContextProvider: React.FC<IAuthContextProvider> = ({
     const [user, setUser] = useState<UserEntity>();
 
     const onCacheAuthenticate = () => {
-        const userAuth = LocalStorageAdapter.get<UserEntity>("@user_auth");
+        const userAuth = localStorageAdapter.get<UserEntity>("@user_auth");
         userAuth && setUser(userAuth);
     };
 
@@ -29,13 +29,13 @@ export const AuthContextProvider: React.FC<IAuthContextProvider> = ({
             username: data.username,
         };
 
-        LocalStorageAdapter.set("@user_auth", response);
+        localStorageAdapter.set("@user_auth", response);
 
         return response;
     };
 
     const logout = () => {
-        LocalStorageAdapter.remove("@user_auth");
+        localStorageAdapter.remove("@user_auth");
         setUser(undefined);
     };
 

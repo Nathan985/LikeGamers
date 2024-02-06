@@ -16,4 +16,4 @@ class LocalStorageAdapter implements ILocalStorageAdapter {
 	}
 }
 
-export default new LocalStorageAdapter();
+export const localStorageAdapter = new LocalStorageAdapter();
