@@ -60,13 +60,7 @@ export const Authenticate: React.FC = () => {
                     </div>
                 </div>
                 <div className="hidden w-[50%] h-full p-5 justify-center items-center dark:bg-indigo-900 bg-indigo-600 xl:flex">
-                    <div
-                        className="flex w-full h-[340px] rounded-lg bg-cover bg-no-repeat"
-                        style={{
-                            backgroundSize: "contain",
-                            backgroundImage: `url(${Banner})`,
-                        }}
-                    ></div>
+                    <img src={Banner} />
                 </div>
             </div>
         </div>
