@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AuthGuard } from "./AuthGuard";
 import { Authenticate, Dashboard } from "view/page";
+import { Layout } from "view/layout";
 
 export const RouterProvider: React.FC = () => {
     return (
@@ -11,7 +12,9 @@ export const RouterProvider: React.FC = () => {
                     <Route path="/auth" element={<Authenticate />} />
                 </Route>
                 <Route element={<AuthGuard isPrivate />}>
-                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route element={<Layout />}>
+                        <Route path="/dashboard" element={<Dashboard />} />
+                    </Route>
                 </Route>
 
                 <Route path="*" element={<Navigate to={"/dashboard"} />} />
