@@ -31,6 +31,7 @@ import {
     MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
 import { cn } from "shared/helpers";
+import { Outlet } from "react-router-dom";
 
 const navigation = [
     { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
@@ -463,7 +464,7 @@ export const Layout = () => {
 
                     <main className="py-10">
                         <div className="px-4 sm:px-6 lg:px-8">
-                            {/* Your content */}
+                            <Outlet />
                         </div>
                     </main>
                 </div>

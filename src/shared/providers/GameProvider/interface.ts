@@ -1,4 +1,4 @@
-import { Game } from "./@types/Game"
+import { Game, IRequest } from "./@types"
 
 export type IGameProviderType = {
   findAllGames: (data: IGameProviderRequest.FindAllGames.Params) => Promise<IGameProviderRequest.FindAllGames.Result>
@@ -12,6 +12,6 @@ export namespace IGameProviderRequest {
       search?: string
     }
 
-    export type Result = Array<Game>
+    export type Result = IRequest<Game>
   }
 }
