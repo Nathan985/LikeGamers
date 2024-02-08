@@ -35,9 +35,8 @@
 }
 
 .scroll-slim::-webkit-scrollbar-thumb {
-  border-radius: 20px;
+  border-radius: 30px;
   background-color: #334155;
-  background-clip: padding-box;
 }
 
 .scroll-slim::-webkit-scrollbar {

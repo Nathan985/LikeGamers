@@ -20,8 +20,9 @@ export const GameContextProvider: React.FC<ICreateContextProvider> = ({
     > = async ({ pageParam: page }) => {
         const response = await gameProvider.findAllGames({
             page,
-            page_size: 5,
+            page_size: 10,
         });
+
         return response;
     };
 
