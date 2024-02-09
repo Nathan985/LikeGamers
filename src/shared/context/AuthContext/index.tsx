@@ -30,6 +30,7 @@ export const AuthContextProvider: React.FC<IAuthContextProvider> = ({
         };
 
         localStorageAdapter.set("@user_auth", response);
+        setUser(response);
 
         return response;
     };

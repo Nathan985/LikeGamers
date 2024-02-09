@@ -1,24 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Card from "./components/Card";
-import { useGameContext } from "shared/context/GameContext/useGameContext";
 import { Spinner } from "view/components/Spinner";
+import { useDashboard } from "./useDashboard";
 
 export const Dashboard: React.FC = () => {
-    const { findAllGames } = useGameContext();
-
-    const pages = findAllGames.data?.pages;
-
-    useEffect(() => {
-        const intersectionObserver = new IntersectionObserver((entries) => {
-            if (entries.some((entry) => entry.isIntersecting)) {
-                findAllGames.fetchNextPage();
-            }
-        });
-        intersectionObserver.observe(
-            document.querySelector("#sentinela") as Element
-        );
-        return () => intersectionObserver.disconnect();
-    }, []);
+    const { findAllGames, pages } = useDashboard();
 
     return (
         <div className="flex flex-col w-full h-full p-4 justify-center items-center">
