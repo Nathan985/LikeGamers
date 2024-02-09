@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useMemo } from "react";
 import { useAuthContext } from "shared/context/AuthContext/useAuthContext";
 import { useDebounce } from "shared/hooks";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams, useLocation } from "react-router-dom";
+import { useLayoutContext } from "./context/useLayoutContext";
 
 export const useLayout = () => {
 
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  
   const { user, logout } = useAuthContext();
+  const { setSidebarOpen, sidebarOpen } = useLayoutContext();
   const [, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
-
+  const location = useLocation();
+  
   const onHandleChangeSearch = useDebounce((event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
     setSearchParams({
@@ -21,8 +24,15 @@ export const useLayout = () => {
     logout();
   }
 
-  const onHandleNavigation = navigate
+  const currentRoute = useMemo(() => {
+    return location.pathname;
+  }, [location])
 
+  const isCurrentRoute = (route: string) => {
+    return currentRoute === route;
+  }
+
+  const onHandleNavigation = navigate
 
   return {
     onHandleChangeSearch,
@@ -30,6 +40,7 @@ export const useLayout = () => {
     setSidebarOpen,
     user,
     onHandleLogout,
-    onHandleNavigation
+    onHandleNavigation,
+    isCurrentRoute
   }
 }
