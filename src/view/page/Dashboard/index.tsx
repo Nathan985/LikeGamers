@@ -12,8 +12,11 @@ export const Dashboard: React.FC = () => {
                 {pages?.map((props, index) => (
                     <React.Fragment key={index}>
                         {props.results.map((data, key) => (
-                            <div className="flex w-full justify-center items-center col-span-1">
-                                <Card key={key} {...data} />
+                            <div
+                                key={key}
+                                className="flex w-full justify-center items-center col-span-1"
+                            >
+                                <Card {...data} />
                             </div>
                         ))}
                     </React.Fragment>

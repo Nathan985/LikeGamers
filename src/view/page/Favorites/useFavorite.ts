@@ -13,14 +13,12 @@ export const useFavorites = () => {
 
     if(typeof queryParam === 'string') {
       console.log()
-      return data.filter((props) => props.name.includes(queryParam))
+      return data.filter((props) => props.name.toLowerCase().includes(queryParam.toLowerCase()))
     }
 
     return data;
 
   }, [searchParams, state[QKGameProvider.FAVORITE_GAMES]])
-
-  // console.log(favoriteGames())
 
   return {
     favoriteGames

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useAuthContext } from "shared/context/AuthContext/useAuthContext";
 import { useDebounce } from "shared/hooks";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export const useLayout = () => {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { user, logout } = useAuthContext();
   const [, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const onHandleChangeSearch = useDebounce((event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
@@ -20,6 +21,7 @@ export const useLayout = () => {
     logout();
   }
 
+  const onHandleNavigation = navigate
 
 
   return {
@@ -27,6 +29,7 @@ export const useLayout = () => {
     sidebarOpen,
     setSidebarOpen,
     user,
-    onHandleLogout
+    onHandleLogout,
+    onHandleNavigation
   }
 }

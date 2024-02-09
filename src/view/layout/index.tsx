@@ -11,7 +11,7 @@ import Navbar from "./components/Navbar";
 import { BookmarkIcon, PlayIcon } from "@heroicons/react/24/outline";
 
 export const Layout = () => {
-    const { setSidebarOpen, sidebarOpen } = useLayout();
+    const { setSidebarOpen, sidebarOpen, onHandleNavigation } = useLayout();
 
     return (
         <>
@@ -84,7 +84,13 @@ export const Layout = () => {
                                                         role="list"
                                                         className="-mx-2 space-y-1"
                                                     >
-                                                        <li>
+                                                        <li
+                                                            onClick={() =>
+                                                                onHandleNavigation(
+                                                                    "/dashboard"
+                                                                )
+                                                            }
+                                                        >
                                                             <p
                                                                 className={cn(
                                                                     // item.current
@@ -105,7 +111,13 @@ export const Layout = () => {
                                                                 Jogos
                                                             </p>
                                                         </li>
-                                                        <li>
+                                                        <li
+                                                            onClick={() =>
+                                                                onHandleNavigation(
+                                                                    "/favorites"
+                                                                )
+                                                            }
+                                                        >
                                                             <p
                                                                 className={cn(
                                                                     // item.current
@@ -155,7 +167,11 @@ export const Layout = () => {
                             >
                                 <li>
                                     <ul role="list" className="-mx-2 space-y-1">
-                                        <li>
+                                        <li
+                                            onClick={() =>
+                                                onHandleNavigation("/dashboard")
+                                            }
+                                        >
                                             <p
                                                 className={cn(
                                                     // item.current
@@ -176,7 +192,11 @@ export const Layout = () => {
                                                 Jogos
                                             </p>
                                         </li>
-                                        <li>
+                                        <li
+                                            onClick={() =>
+                                                onHandleNavigation("/favorites")
+                                            }
+                                        >
                                             <p
                                                 className={cn(
                                                     // item.current
