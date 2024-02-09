@@ -10,7 +10,7 @@ export type ICardType = Game & {
 
 const Card: React.FC<ICardType> = ({ isBookMark = true, ...data }) => {
     return (
-        <div className="flex relative flex-col group rounded-2xl hover:scale-105 transition-all cursor-pointer w-[382px] h-[542px] overflow-hidden bg-white shadow-xl">
+        <div className="flex sm:w-[254px] sm:h-[450px] md:w-[198px] md:h-[345px] xl:w-[220px] xl:h-[410px] 2xl:w-[268px] 2xl:h-[442px]  min-[1640px]:w-[345px] relative flex-col group rounded-2xl hover:scale-105 transition-all cursor-pointer w-[382px] h-[442px] overflow-hidden bg-white shadow-xl">
             <div className="absolute transition-all opacity-0 group-hover:opacity-100 flex justify-center items-center w-full h-full z-20 bg-black/80">
                 <BookmarkIcon className="w-8 h-8 fill-white" />
             </div>
@@ -31,7 +31,7 @@ const Card: React.FC<ICardType> = ({ isBookMark = true, ...data }) => {
                 </div>
 
                 <div className="">
-                    <h3 className="text-2xl pl-1 font-semibold text-black">
+                    <h3 className="text-2xl sm:text-lg md:text-sm truncate text-ellipsis whitespace-nowrap transition-all pl-1 font-semibold text-black">
                         {data.name}
                     </h3>
                     <Ratting ratting={data.rating} />

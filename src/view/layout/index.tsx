@@ -463,7 +463,7 @@ export const Layout = () => {
                     </div>
 
                     <main className="py-10 h-full w-full">
-                        <div className="px-4 h-full w-full bg-[#f8f8ff] sm:px-6 lg:px-8">
+                        <div className="px-4 h-full w-full bg-gray-100 sm:px-6 lg:px-8">
                             <Outlet />
                         </div>
                     </main>
