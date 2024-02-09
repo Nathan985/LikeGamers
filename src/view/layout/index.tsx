@@ -11,7 +11,8 @@ import Navbar from "./components/Navbar";
 import { BookmarkIcon, PlayIcon } from "@heroicons/react/24/outline";
 
 export const Layout = () => {
-    const { setSidebarOpen, sidebarOpen, onHandleNavigation } = useLayout();
+    const { setSidebarOpen, sidebarOpen, onHandleNavigation, onHandleLogout } =
+        useLayout();
 
     return (
         <>
@@ -219,7 +220,10 @@ export const Layout = () => {
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="mt-auto">
+                                <li
+                                    className="mt-auto"
+                                    onClick={onHandleLogout}
+                                >
                                     <p className="group -mx-2 cursor-pointer flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
                                         <ArrowLeftStartOnRectangleIcon
                                             className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
