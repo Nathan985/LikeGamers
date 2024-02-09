@@ -26,7 +26,7 @@ export const Dashboard: React.FC = () => {
                         <Spinner className="w-8 h-8 text-gray-300" />
                     </div>
                 )}
-                <div className="grid-cols-5" id="sentinela"></div>
+                <div className="grid-cols-5" id="scroll-next"></div>
             </div>
         </div>
     );

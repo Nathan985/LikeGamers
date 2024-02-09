@@ -17,7 +17,7 @@ export const useDashboard = () => {
         }
     });
     intersectionObserver.observe(
-        document.querySelector("#sentinela") as Element
+        document.querySelector("#scroll-next") as Element
     );
     return () => intersectionObserver.disconnect();
 }, []);
