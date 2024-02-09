@@ -15,6 +15,7 @@
     "@hookform/resolvers": "^3.3.4",
     "@tailwindcss/forms": "^0.5.7",
     "@tanstack/react-query": "^5.18.1",
+    "@types/node": "^20.11.17",
     "autoprefixer": "^10.4.17",
     "axios": "^1.6.7",
     "clsx": "^2.1.0",

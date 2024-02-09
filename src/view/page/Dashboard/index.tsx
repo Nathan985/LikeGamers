@@ -1,24 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Card from "./components/Card";
-import { useGameContext } from "shared/context/GameContext/useGameContext";
 import { Spinner } from "view/components/Spinner";
+import { useDashboard } from "./useDashboard";
 
 export const Dashboard: React.FC = () => {
-    const { findAllGames } = useGameContext();
-
-    const pages = findAllGames.data?.pages;
-
-    useEffect(() => {
-        const intersectionObserver = new IntersectionObserver((entries) => {
-            if (entries.some((entry) => entry.isIntersecting)) {
-                findAllGames.fetchNextPage();
-            }
-        });
-        intersectionObserver.observe(
-            document.querySelector("#sentinela") as Element
-        );
-        return () => intersectionObserver.disconnect();
-    }, []);
+    const { findAllGames, pages } = useDashboard();
 
     return (
         <div className="flex flex-col w-full h-full p-4 justify-center items-center">
@@ -26,8 +12,11 @@ export const Dashboard: React.FC = () => {
                 {pages?.map((props, index) => (
                     <React.Fragment key={index}>
                         {props.results.map((data, key) => (
-                            <div className="flex w-full justify-center items-center col-span-1">
-                                <Card key={key} {...data} />
+                            <div
+                                key={key}
+                                className="flex w-full justify-center items-center col-span-1"
+                            >
+                                <Card {...data} />
                             </div>
                         ))}
                     </React.Fragment>
@@ -37,7 +26,7 @@ export const Dashboard: React.FC = () => {
                         <Spinner className="w-8 h-8 text-gray-300" />
                     </div>
                 )}
-                <div className="grid-cols-5" id="sentinela"></div>
+                <div className="grid-cols-5" id="scroll-next"></div>
             </div>
         </div>
     );

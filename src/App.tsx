@@ -4,6 +4,7 @@ import { RouterProvider } from "router";
 import { AuthContextProvider } from "shared/context/AuthContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { GameContextProvider } from "shared/context/GameContext";
+import { LayoutContextProvider } from "view/layout/context";
 
 export const App: React.FC = () => {
     const queryClient = new QueryClient();
@@ -13,7 +14,9 @@ export const App: React.FC = () => {
             <QueryClientProvider client={queryClient}>
                 <Toaster position="top-center" />
                 <GameContextProvider>
-                    <RouterProvider />
+                    <LayoutContextProvider>
+                        <RouterProvider />
+                    </LayoutContextProvider>
                 </GameContextProvider>
             </QueryClientProvider>
         </AuthContextProvider>
