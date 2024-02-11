@@ -12,7 +12,7 @@ const Favorites: React.FC = () => {
 
     return (
         <div className="flex flex-col w-full h-full p-4 justify-center items-center">
-            <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 min-[1720px]:grid-cols-4 min-[1920px]:grid-cols-5 gap-6 max-w-[1940px] scroll-slim overflow-y-auto max-h-[92%] border-4 border-transparent p-4 w-full h-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4  min-[1920px]:grid-cols-5  gap-y-6 gap-x-1 max-w-[1940px] scroll-slim overflow-y-auto max-h-[92%] border-4 border-transparent p-4 w-full h-full">
                 {data.length <= 0 && <EmptyState />}
                 {data.map((data, key) => (
                     <div

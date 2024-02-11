@@ -23,7 +23,7 @@ const Card: React.FC<ICardType> = (data) => {
     };
 
     return (
-        <div className="flex relative flex-col group rounded-2xl hover:scale-105 transition-all cursor-pointer w-[382px] h-[542px] overflow-hidden dark:bg-gray-900 bg-white shadow-xl">
+        <div className="flex sm:w-[254px] sm:h-[450px] md:w-[198px] md:h-[345px] xl:w-[220px] xl:h-[410px] 2xl:w-[268px] 2xl:h-[442px]  min-[1640px]:w-[345px] relative flex-col group rounded-2xl hover:scale-105 transition-all cursor-pointer w-[382px] h-[442px] overflow-hidden bg-white dark:bg-gray-900 shadow-xl">
             <div className="absolute transition-all opacity-0 group-hover:opacity-100 flex justify-center items-center w-full h-full z-20 bg-black/80">
                 <BookmarkIcon
                     onClick={onHandleCardClick}
@@ -35,7 +35,7 @@ const Card: React.FC<ICardType> = (data) => {
             </div>
             <BookmarkIcon
                 className={cn(
-                    "absolute hidden top-3 right-3 w-5 h-5 fill-yellow-300",
+                    "absolute hidden top-3 right-3 w-4 h-4 fill-yellow-300",
                     isBookMark && "block"
                 )}
             />
@@ -49,8 +49,8 @@ const Card: React.FC<ICardType> = (data) => {
                     ></div>
                 </div>
 
-                <div>
-                    <h3 className="text-2xl pl-1 font-semibold dark:text-gray-300 text-black">
+                <div className="">
+                    <h3 className="text-2xl sm:text-lg md:text-sm truncate text-ellipsis whitespace-nowrap transition-all pl-1 font-semibold dark:text-gray-300 text-black">
                         {data.name}
                     </h3>
                     <Ratting ratting={data.rating} />

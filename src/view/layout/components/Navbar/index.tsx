@@ -38,9 +38,6 @@ const Navbar: React.FC = () => {
 
             <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
                 <form className="relative flex flex-1" action="#" method="GET">
-                    <label htmlFor="search-field" className="sr-only">
-                        Search
-                    </label>
                     <MagnifyingGlassIcon
                         className="pointer-events-none absolute inset-y-0 left-0 h-full w-5 text-gray-400"
                         aria-hidden="true"
@@ -48,8 +45,8 @@ const Navbar: React.FC = () => {
                     <input
                         id="search-field"
                         className="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 dark:bg-gray-900 dark:text-gray-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
-                        placeholder="Search..."
-                        type="search"
+                        placeholder="Busque pelo nome do jogo..."
+                        type="text"
                         name="search"
                         onChange={onHandleChangeSearch}
                     />
@@ -120,14 +117,16 @@ const Navbar: React.FC = () => {
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                         >
-                            <Menu.Items className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
+                            <Menu.Items className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white dark:bg-gray-800 py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
                                 <Menu.Item>
                                     {({ active }) => (
                                         <p
                                             onClick={onHandleLogout}
                                             className={cn(
-                                                "block px-3 py-1 text-sm  cursor-pointer leading-6 text-gray-900",
-                                                active ? "bg-gray-50" : ""
+                                                "block px-3 py-1 text-sm cursor-pointer leading-6 dark:text-gray-300 text-gray-900",
+                                                active
+                                                    ? "bg-gray-50 dark:bg-gray-700 "
+                                                    : ""
                                             )}
                                         >
                                             Logout
