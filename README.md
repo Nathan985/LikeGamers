@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+<div align="center">
+    <p>
+        <img src="https://github.com/Nathan985/MedCof/blob/main/public/logo-name.png" />
+    </p>
+    <p>
+        <img src="https://github.com/Nathan985/MedCof/blob/main/public/screenshot.png" />
+    </p>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 💻 Link do Porjeto:
 
-Currently, two official plugins are available:
+Para visualizar o projeto sem ter que executar ele em sua maquina utilize o link dele já em deploy: <a href="https://like-gamers.netlify.app/dashboard" target="_blank" >**Like Gamers**</a>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[![Netlify Status](https://api.netlify.com/api/v1/badges/62a7a7cf-1202-4b99-989d-4c42985b018e/deploy-status)](https://app.netlify.com/sites/like-gamers/deploys)
 
-## Expanding the ESLint configuration
+# 📚 Projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+O **Like Gamers** é um projeto onde você pode pesquisar jogos consumindo a [*API Rawg*](https://api.rawg.io/docs/).
 
-- Configure the top-level `parserOptions` property like this:
+# 🧰 Guia de Instalação
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Clonando o repositório
+```bash
+git clone https://github.com/Nathan985/MedCof
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Configuração do Projeto
+Para Iniciar o projeto temos que informar a suas Variaveis de Ambiente, criando assim o arquivo .env na raiz do projeto
+```bash
+# .env
+VITE_API_RAWG_HOST=https://api.rawg.io/api
+VITE_API_RAWG_KEY=[API_KEY]
+```
+Para conseguir sua **API_KEY** Faça cadastro no [**RAWG**](https://rawg.io/apidocs). e consulte sua API Key
+
+## Instalando as dependências
+```bash
+# Utilizando o NPM
+npm install
+
+# Utilizando o yarn
+yarn install
+```
+
+## Executando o projeto
+```bash
+# Utilizando o NPM
+npm run dev
+
+# Utilizando o yarn
+yarn dev
+```
