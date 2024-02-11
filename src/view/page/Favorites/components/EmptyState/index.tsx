@@ -8,7 +8,9 @@ const EmptyState: React.FC = () => {
     return (
         <div className="flex flex-col gap-2 col-span-5 h-full md:1 w-full justify-center items-center">
             <BookmarkIcon className="w-8 h-8 text-yellow-300" />
-            <p className="text-lg font-semibold">Nenhum Jogo Encontrado</p>
+            <p className="text-lg font-semibold dark:text-white">
+                Nenhum Jogo Encontrado
+            </p>
             <button
                 type="button"
                 className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
