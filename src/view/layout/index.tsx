@@ -4,7 +4,6 @@ import {
     ArrowLeftStartOnRectangleIcon,
     XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { cn } from "shared/helpers";
 import { Outlet } from "react-router-dom";
 import { useLayout } from "./useLayout";
 import Navbar from "./components/Navbar";

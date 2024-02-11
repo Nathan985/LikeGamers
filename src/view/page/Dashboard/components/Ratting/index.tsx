@@ -1,5 +1,4 @@
 import React, { useCallback } from "react";
-import { cn } from "shared/helpers";
 import { StarIcon } from "@heroicons/react/20/solid";
 import RatingComponent from "react-rating";
 
@@ -22,6 +21,7 @@ const Ratting: React.FC<IRattingType> = ({ ratting }) => {
 
     return (
         <div className="mt-1 p-1">
+            {/* @ts-ignore */}
             <RatingComponent
                 start={0}
                 stop={5}
