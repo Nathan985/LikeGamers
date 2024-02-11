@@ -9,7 +9,7 @@
 
 # 💻 Link do Porjeto:
 
-Para visualizar o projeto sem ter que executar ele em sua maquina utilize o link dele já em deploy: <a href="https://like-gamers.netlify.app/dashboard" target="_blank" >**Like Gamers**</a>
+Para visualizar o projeto sem ter que executar ele em sua maquina utilize o link dele já em deploy: <a href="https://like-gamers.netlify.app" target="_blank" >**Like Gamers**</a>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/62a7a7cf-1202-4b99-989d-4c42985b018e/deploy-status)](https://app.netlify.com/sites/like-gamers/deploys)
 
