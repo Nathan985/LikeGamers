@@ -23,7 +23,7 @@ const Card: React.FC<ICardType> = (data) => {
     };
 
     return (
-        <div className="flex relative flex-col group rounded-2xl hover:scale-105 transition-all cursor-pointer w-[382px] h-[542px] overflow-hidden bg-white shadow-xl">
+        <div className="flex relative flex-col group rounded-2xl hover:scale-105 transition-all cursor-pointer w-[382px] h-[542px] overflow-hidden dark:bg-gray-900 bg-white shadow-xl">
             <div className="absolute transition-all opacity-0 group-hover:opacity-100 flex justify-center items-center w-full h-full z-20 bg-black/80">
                 <BookmarkIcon
                     onClick={onHandleCardClick}
@@ -49,8 +49,8 @@ const Card: React.FC<ICardType> = (data) => {
                     ></div>
                 </div>
 
-                <div className="">
-                    <h3 className="text-2xl pl-1 font-semibold text-black">
+                <div>
+                    <h3 className="text-2xl pl-1 font-semibold dark:text-gray-300 text-black">
                         {data.name}
                     </h3>
                     <Ratting ratting={data.rating} />

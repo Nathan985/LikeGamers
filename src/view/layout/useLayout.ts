@@ -3,12 +3,14 @@ import { useAuthContext } from "shared/context/AuthContext/useAuthContext";
 import { useDebounce } from "shared/hooks";
 import { useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { useLayoutContext } from "./context/useLayoutContext";
+import { useApplicationContext } from "shared/context/ApplicationContext/useApplicationContext";
 
 export const useLayout = () => {
 
   
   const { user, logout } = useAuthContext();
   const { setSidebarOpen, sidebarOpen } = useLayoutContext();
+  const { toggleMode, darkMode } = useApplicationContext();
   const [, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,6 +43,8 @@ export const useLayout = () => {
     user,
     onHandleLogout,
     onHandleNavigation,
-    isCurrentRoute
+    isCurrentRoute,
+    toggleMode,
+    darkMode
   }
 }

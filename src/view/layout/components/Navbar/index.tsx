@@ -3,17 +3,26 @@ import {
     Bars3Icon,
     ChevronDownIcon,
     MagnifyingGlassIcon,
+    MoonIcon,
+    SunIcon,
 } from "@heroicons/react/20/solid";
 import React, { Fragment } from "react";
 import { cn } from "shared/helpers";
+import Toggle from "view/components/Toggle";
 import { useLayout } from "view/layout/useLayout";
 
 const Navbar: React.FC = () => {
-    const { onHandleChangeSearch, setSidebarOpen, user, onHandleLogout } =
-        useLayout();
+    const {
+        onHandleChangeSearch,
+        setSidebarOpen,
+        user,
+        onHandleLogout,
+        toggleMode,
+        darkMode,
+    } = useLayout();
 
     return (
-        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
+        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b dark:bg-gray-900 dark:border-gray-800 border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
             <button
                 type="button"
                 className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
@@ -22,10 +31,8 @@ const Navbar: React.FC = () => {
                 <span className="sr-only">Open sidebar</span>
                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
-
-            {/* Separator */}
             <div
-                className="h-6 w-px bg-gray-200 lg:hidden"
+                className="h-6 w-px bg-gray-200 dark:bg-gray-800 lg:hidden"
                 aria-hidden="true"
             />
 
@@ -40,7 +47,7 @@ const Navbar: React.FC = () => {
                     />
                     <input
                         id="search-field"
-                        className="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
+                        className="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 dark:bg-gray-900 dark:text-gray-300 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
                         placeholder="Search..."
                         type="search"
                         name="search"
@@ -48,18 +55,52 @@ const Navbar: React.FC = () => {
                     />
                 </form>
                 <div className="flex items-center gap-x-4 lg:gap-x-6">
-                    {/* Separator */}
+                    <Toggle onChange={toggleMode} value={darkMode}>
+                        {({ enabled }) => (
+                            <Fragment>
+                                <span
+                                    className={cn(
+                                        enabled
+                                            ? "translate-x-5"
+                                            : "translate-x-0",
+                                        "pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                                    )}
+                                >
+                                    <span
+                                        className={cn(
+                                            enabled
+                                                ? "opacity-0 duration-100 ease-out"
+                                                : "opacity-100 duration-200 ease-in",
+                                            "absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+                                        )}
+                                        aria-hidden="true"
+                                    >
+                                        <SunIcon className="w-3 h-3" />
+                                    </span>
+                                    <span
+                                        className={cn(
+                                            enabled
+                                                ? "opacity-100 duration-200 ease-in"
+                                                : "opacity-0 duration-100 ease-out",
+                                            "absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+                                        )}
+                                        aria-hidden="true"
+                                    >
+                                        <MoonIcon className="w-3 h-3" />
+                                    </span>
+                                </span>
+                            </Fragment>
+                        )}
+                    </Toggle>
                     <div
-                        className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200"
+                        className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200 dark:lg:bg-gray-400"
                         aria-hidden="true"
                     />
-
-                    {/* Profile dropdown */}
                     <Menu as="div" className="relative">
                         <Menu.Button className="-m-1.5 flex items-center p-1.5">
                             <span className="hidden lg:flex lg:items-center">
                                 <span
-                                    className="text-sm font-semibold leading-6 text-gray-900"
+                                    className="text-sm font-semibold leading-6 dark:text-gray-200 text-gray-900"
                                     aria-hidden="true"
                                 >
                                     {user?.username}
